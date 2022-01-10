@@ -3,7 +3,7 @@
     If OCI selected
     host = optional
     port = optional
-    database = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=<PORT>)(host=<HOST>))(connect_data=(service_name=<SERVICE_NAME>))(security=(ssl_server_cert_dn=\"<SSL_SERVER_CERT_DN>\")))
+    database = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcp)(port=<PORT>)(host=<HOST>))(connect_data=(service_name=<SERVICE_NAME>))(security=(ssl_server_cert_dn=\"<SSL_SERVER_CERT_DN>\")))
  */
 
 define("DLC", [
