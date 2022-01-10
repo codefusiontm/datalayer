@@ -1,0 +1,32 @@
+{
+"name": "codefusiontm/datalayer",
+"description": "A camada de dados é um componente de abstração para persistência de dados em seu banco de dados utilizando PDO e OCI",
+"keywords": [
+"codefusiontm",
+"CODEFUSION",
+"Database",
+"PDO",
+"Save",
+"Delete",
+"Destroy",
+"CRUD"
+],
+"homepage": "http://www.codefusiontm.com",
+"license": "MIT",
+"authors": [
+{
+"name": "Julio SANTOS",
+"email": "julio@codefusiontm.com",
+"role": "Developer"
+}
+],
+"require": {
+"php": ">=7.4",
+"ext-pdo": "*"
+},
+"autoload": {
+"psr-4": {
+"CodefusionTM\\DataLayer\\": "src"
+}
+}
+}
