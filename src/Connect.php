@@ -12,10 +12,10 @@ use PDOException;
 class Connect
 {
     /** @var PDO */
-    private static $instance;
+    private static PDO $instance;
 
     /** @var PDOException */
-    private static $error;
+    private static PDOException $error;
 
     /**
      * Connect constructor.
@@ -25,14 +25,14 @@ class Connect
     }
 
     /**
-     * @return PDO
+     * @return ?PDO
      */
     public static function getInstance(): ?PDO
     {
         if (empty(self::$instance)) {
             try {
                 self::$instance = new PDO(
-                    DLC["driver"] . ":host=" . DLC["host"] . ";dbname=" . DLC["dbname"] . ";port=" . DLC["port"],
+                    self::connectionString(),
                     DLC["username"],
                     DLC["passwd"],
                     DLC["options"]
@@ -45,9 +45,20 @@ class Connect
     }
 
     /**
-     * @return PDOException|null
+     * @return string
      */
-    public static function getError(): ?PDOException
+    private static function connectionString(): string
+    {
+        if (DLC["engine"] === "oci") {
+            return "oci:dbname=" . DLC["dbname"] . ";charset=" . DLC["charset"];
+        }
+        return DLC["driver"] . ":host=" . DLC["host"] . ";dbname=" . DLC["dbname"] . ";port=" . DLC["port"];
+    }
+
+    /**
+     * @return PDOException
+     */
+    public static function getError(): PDOException
     {
         return self::$error;
     }
