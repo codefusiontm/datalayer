@@ -63,10 +63,17 @@ class Connect
         return self::$error;
     }
 
+    public static function close() {
+        echo "<hr><pre>";
+        print_r(self::$instance);
+        echo "<pre><hr>";
+    }
+
     /**
      * Connect clone.
      */
     private function __clone()
     {
     }
+
 }
